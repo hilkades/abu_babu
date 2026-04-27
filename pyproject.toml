@@ -1,0 +1,37 @@
+[project]
+name = "tg-antispam-bot"
+version = "0.1.0"
+description = "Telegram anti-spam bot for groups (aiogram 3 + Postgres + Redis)"
+requires-python = ">=3.11"
+dependencies = [
+  "aiogram>=3.6.0",
+  "pydantic>=2.7.0",
+  "pydantic-settings>=2.2.1",
+  "SQLAlchemy>=2.0.30",
+  "asyncpg>=0.29.0",
+  "alembic>=1.13.1",
+  "redis>=5.0.4",
+  "orjson>=3.10.3",
+  "structlog>=24.1.0",
+  "python-dotenv>=1.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2.0",
+  "pytest-asyncio>=0.23.7",
+  "ruff>=0.5.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.format]
+quote-style = "double"
+
